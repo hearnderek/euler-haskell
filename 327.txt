@@ -1,0 +1,52 @@
+ C = max cards able to hold at once.
+ R = number of rooms to travel through.
+ M(C,R) = Min Cards required from dispensing machine
+
+ M(4,6) = 23
+ M(3,6) = 123
+
+ 11
+ 2
+ 1
+ 0o
+
+doors = R + 1
+
+
+M(2,1) = 2
+M(2,2) = impossible
+M(3,2) = 3
+M(3,3) = t3 f d1 b t3 f p1 f d1 b ded 
+M(3,3) = t3 f1 d1 b0 t3 f1 d1 b0 t2 f1 p2a3 f2 f3 f4 = 8 
+M(3,4) = 21
+t3 f1 d1 b0                       | d1 d0 d0 d0 = 3
+t3 f1 d1 b0                       | d2 d0 d0 d0 = 6
+t3 f1 p1 f2 d1 b1 p1 b0           | d0 d1 d0 d0 = 9
+t3 f1 d1 b0                       | d1 d1 d0 d0 = 12
+t3 f1 p1a3 f2 p1a3 f3 f4 f!       | d1 d1 d0 d0 = 15
+
+M(3,5) = 
+t3 f1 d1 b0 - d1r1                           | d1 d0 d0 d0 d0 = 3
+t3 f1 d1 b0 - d1r1                           | d2 d0 d0 d0 d0 = 6
+t3 f1 p1 f2 d1 b1 p1 b0 - d1r2               | d0 d1 d0 d0 d0 = 9
+t3 f1 d1 b0 - d1r1                           | d1 d1 d0 d0 d0 = 12
+t3 f1 d1 b0 - d1r1                           | d2 d1 d0 d0 d0 = 15
+t3 f1 p1 f2 d1 b1 p1 b0 - d1r2               | d0 d2 d0 d0 d0 = 18
+t3 f1 d1 b0 - d1r1                           | d1 d2 d0 d0 d0 = 21
+t3 f1 d1 b0 - d1r1                           | d2 d2 d0 d0 d0 = 24
+t3 f1 p1a3 f2 p1a3 f3 d1 b2 p1a1 b1 p1a1 b0  | d0 d0 d1 d0 d0 = 27
+
+
+put1room1 cost 3
+put1room2 = put1room1 x 2 + 3
+put1room3 = put1room2 x 2 + put1room1 x 2 + 3 
+
+R C
+R 
+
+cp1(r(R-C+1))+cm(r(R-C+!))
+(1,2) = 1-2+1 = 0
+(2,3) = 2-3+1 = 0
+(3,3) = 3-3+1 = 1
+(4,3) = 4-3+1 = 2
+
